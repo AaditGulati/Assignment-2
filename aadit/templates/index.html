@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Prediction</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom right, #2e004f, #000000);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #ffffff;
+        }
+        .container {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px 40px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 600px;
+        }
+        h1 {
+            color: #d4b3ff;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        label {
+            flex: 1 1 45%;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            color: #b3b3b3;
+        }
+        input[type="text"] {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: #ffffff;
+            width: 100%;
+            margin-left: 8px;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #d4b3ff;
+            box-shadow: 0px 0px 4px #d4b3ff;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            background: #8e44ad;
+            color: white;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background: #9b59b6;
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.8);
+        }
+        .button:focus, .button:active {
+            outline: none;
+        }
+        .back-link {
+            margin-top: 20px;
+            color: #d4b3ff;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AQI Prediction</h1>
+        <form method="POST" action="/predict">
+            <label>PT08.S1(CO): <input type="text" name="co"></label>
+            <label>NMHC(GT): <input type="text" name="nmhc"></label>
+            <label>C6H6(GT): <input type="text" name="c6h6"></label>
+            <label>PT08.S2(NMHC): <input type="text" name="nmhc_sensor"></label>
+            <label>NO2(GT): <input type="text" name="no2"></label>
+            <label>PT08.S3(NOx): <input type="text" name="nox_sensor"></label>
+            <label>NOx(GT): <input type="text" name="nox"></label>
+            <label>PT08.S4(NO2): <input type="text" name="no2_sensor"></label>
+            <label>PT08.S5(O3): <input type="text" name="o3"></label>
+            <label>Temperature (°C): <input type="text" name="temperature"></label>
+            <label>Relative Humidity (%): <input type="text" name="humidity"></label>
+            <label>Absolute Humidity (g/m³): <input type="text" name="abs_humidity"></label>
+            <button type="submit" class="button">Predict</button>
+        </form>
+        <a href="#" class="back-link">Go Back to Home</a>
+    </div>
+</body>
+</html>
